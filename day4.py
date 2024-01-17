@@ -53,4 +53,3 @@ subjects.sort(reverse=False) #역방향 정령
 #리스트 안에 숫자형 있으면 TypeError: '<' not supported between instances of 'str' and 'int'
 copy_subjects = sorted((subjects))
 print(subjects)
-
