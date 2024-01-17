@@ -49,8 +49,8 @@ while True:
         print("Terminate program")
         break
 '''
-
 #0117과제
 #205p 8.10까지
 #예습도 좀 하세요 !!
+
 
