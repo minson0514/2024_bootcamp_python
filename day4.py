@@ -1,27 +1,33 @@
+#dictionary
+#mutable data structure
+sugang = dict(python='kim', cpp='sung', db='kang')
+#TypeError: unhashable type: 'dict' -> {} 로 dict를 묶으면 에러
+
+#get items
 '''
-squares = list()
-for i in range(1, 5+1, 1):
-    squares.append(i**2)
-print(squares)
+print(sugang)
+sugang['datastructure'] = "kim"
+print(sugang)
+sugang['datastructure'] = 'park'
+print(sugang) #type: dictionary
+print(sugang['db']) #kang
+print(sugang.get('db')) #kang
+print(sugang.get('opensource')) #None
+print(sugang.get('opensource', 'not exist'))
 '''
 
-#create a list with a comprehension
+#Print items
+'''
+for subjet, professor in sugang.items():
+    print("%s 과목 담당교수는 %s 입니다."%(subjet,professor)) #print key and value
 
-#['expression' for 'item' in 'iterable']
-# -> iterable 자료에 순환 가능한 자료형이 나와야함
-# -> 자동으로 append기능이 있음
-'''
-sqares = [i*i for i in range(1, 5+1, 1)]
-print((sqares))
+#for k in sugang.keys():
+for k in sugang: #key -> default
+    print(k) #print key
+for v in sugang.values():
+    print(v) #print value
+
+for s in sugang.items():
+    print(s) #print key and value in tuple
 '''
 
-#['expression' for 'item' in 'iterable' if 'condition']
-'''
-even_sqares = [i*i for i in range(1, 5+1, 1) if i % 2 == 0] #짝수의 제곱만 출력 됨
-print(even_sqares)
-'''
-
-#tuple versus lists
-#튜플은 적은 공간 사용
-#you can't clobber tuple items by mistake
-#튜플을 딕셔너리의 key로 사용할 수 있음 b/c immutable
