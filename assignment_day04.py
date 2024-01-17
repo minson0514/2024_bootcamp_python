@@ -8,6 +8,7 @@ while True:
     elif menu == '2':
         celsius = float(input('Input celsius : '))
         print(f'Celsius : {celsius}F, Celsius : {((celsius * 9.0 / 5.0) + 32.0): .4f}C')
+    #중복코드 수정 필요 by 함수
     elif menu =='3':
         number = int(input("input num: "))
         is_prime = True  # int type-> boolean
@@ -25,10 +26,8 @@ while True:
             else:
                 print("%d is NOT prime nuber" % number)
         pass
-    elif menu == '4':
+    elif menu == '4': #이전 버전 대비 띄어쓰기 안 했을 때 생기는 오류 수정 해야함
         numbers = input("input first second number : ").split()
-        # input two nums and split them
-        # data type -> list (it has two components)
         n1 = int(numbers[0])
         n2 = int(numbers[1])
         if n1 > n2:  # non temporary variable
@@ -36,7 +35,7 @@ while True:
         for number in range(n1, n2 + 1):  # from n1 ~ to n2+1
             is_prime = True  # reset
             if number <= 1:
-                pass  # just pass doin nothin
+                pass
             else:
                 for i in range(2, number):
                     if number % i == 0:
