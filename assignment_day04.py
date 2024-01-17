@@ -1,4 +1,5 @@
 #0116 과제
+'''
 while True:
     menu = input("1) Fahrenheit -> Celsius 2) Celsius -> Fahrenheit 3) Prime1 4) Prime2 5) Quit Program : ")
 
@@ -47,4 +48,9 @@ while True:
     elif menu == '5':
         print("Terminate program")
         break
+'''
+
+#0117과제
+#205p 8.10까지
+#예습도 좀 하세요 !!
 
