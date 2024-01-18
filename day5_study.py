@@ -1,110 +1,42 @@
-#Problem #1
-#if - else 문을 이용해 짝홀수 판별하기
-"""
-num = int(input("Enter the num: "))
-def even_odd(num):
-    '''
-    인자 O, 반환값 X
-    :param num:
-    :return:
-    '''
-    if num%2==1:
-        print("%d is an odd number"%num)
-    else:
-        print("%d is an even number"%num)
-even_odd(num) #함수 호출
-#인자 num을 사용해서 수행문(if else) 수행
-"""
+#함수 정의 및 사용
 
-#Problem #2
-#if - else 문을 이용해 2개의 숫자를 입력 받아 최대값을 구하고 출력
-#단 최대값을 함수 안에서 출력하시오.
+#입력값이 몇 개일지 모를 때 함수 정의
 '''
-num1 = int(input("enter the num1: "))
-num2 = int(input("enter the num2: "))
-def cal_max(a,b):
-    if a > b:
-        max = a
-    else:
-        max = b
-    print(f"max num is {max}")
-cal_max(num1,num2) #num1, num2를 인자로 받아서 실행문 실행
+def 함수이름(*args):
+    수행할 문장
+    ...
 '''
 
-#Problem #3
-#if - else 문을 이용해 2개의 숫자를 입력 받아 최대값을 구하고 출력
-#단 최대값을 함수 밖에서 출력하시오.
-"""
-num1 = int(input("enter the num1: "))
-num2 = int(input("enter the num2: "))
-def cal_max(a,b): #2) 함수 실행
-    '''
-    
-    :param a: 
-    :param b: 
-    :return: return max
-    '''
-    if a > b:
-        max = a
-    else:
-        max = b
-    return max #3) max값 리턴
-a=cal_max(num1,num2) #1) num1, num2를 a,b로 넘김
-#4) 리턴 값을 a에 저장
-print(f"{a} is the max value") #5) print
-"""
-
-#Problem #5
-#for 문을 이용하여 원하는 단을 입력받아 그 단의 구구단을 출력
-#함수명 gugudan으로 작성하시오
+#eg:
 '''
-dan = int(input("원하는 단을 입력하세요: "))
-def gugudan(a):
-    for i in range(1,10): #함수 내 구문 실행
-        print(f"{a} * {i} = {a*i}")
-gugudan(dan) #단을 입력받아서
+def add_many(*args): #2) 넘김
+    result = 0 #3) 문장 수행
+    for i in args:
+        result = result + i
+    return result #4) 결과 리턴
+ans = add_many(1,2,3) #1) 1,2,3을 인수로 받아서 5) 결과를 ans에 저장
+print(ans) #결과 출력
 '''
 
-#Problem #6
-#특정값부터 특정값까지의 합을 구해서 출력하는 프로그램을 함수를 이용해 작성하시오
-#함수 이름 any_sum
-#단 합의 구간에 해당하는 값은 사용자가 셸에서 입력하도록 하고, 이후에 함수를 호출하고 합은 함수 밖에서 출력하시오.
+#키워드 파라미터: def 함수 이름(**kwargs):
 '''
-start = int(input("시작값 입력: "))
-end = int(input("끝값 입력: "))
-def any_sum(start,end):
-    total = 0
-    for i in range(start, end+1):
-        total = total + i
-    return total
-hap=any_sum(start, end)
-print(f"합은 {hap}")
+def print_kwargs(**kwargs):
+    print(kwargs)
+print_kwargs(a=1,b=2)
+#실행 결과 {'a': 1, 'b': 2}
+#위의 예제에서 알 수 있듯이 매개변수는 딕셔너리가 되며 모든 key=value 형태의 결과가 딕셔너리에 저장됨
 '''
 
-#Problem #7
-#사용자로부터 Shell에 정수값을 하나 입력받아 그 수가 2의 배수면서 3의 배수면 Yes를, 아니면 No를 출력하는 프로그램을
-# 조건문과 함수를 이용해 작성하되, 함수 호출까지 코드에 포함시킨다.
-#7-1
-#함수 이름을 multiple1로 하여 Yes, No를 함수 안에서 출력하며 전달인자는 없게 작성
-'''
-def multiple1():
-    num = int(input("enter a num: "))
-    if (num % 2 == 0 and num % 3 == 0):
-        print("Yes")
-    else:
-        print("No")
-multiple1()
-'''
+#반환값이 있는 함수의 결과값은 언제나 하나이다? -> 맞음
+#   결과값은 튜플 형태로 반환
+#   하나의 튜플 값을 2개의 결과값처럼 받고자 한다면
+#   -> result1, result2= 함수이름(인수1,인수2) 이런 식으로 쓰면 됨
+#   -> 리스트로 접근도 가능
+#   return문 두개 설정 불가능
+#   함수는 return문을 만나는 순간 결과값을 반환하고 함수를 빠져 나옴
+#   -> return을 단독으로 쓰면 함수를 빠져 나올 수 있음 (공프 교과서 161페이지)
 
-#7-2
-#함수 이름을 multiple2로 하여 Yes, No를 함수 안에서 출력하며 전달인자가 있게 작성
-'''
-num = int(input("enter a num: "))
-def multiple2(num):
-    if (num % 2 == 0 and num % 3 == 0):
-        print("Yes")
-    else:
-        print("No")
-multiple2(num)
-'''
-
+#default parameter
+#매개변수에 초기값 미리 설정하기(매개변수 초기화)
+#함수 정의 시 값을 지정하지 않았을 때 특정 매개변수의 값을 미리 정해둘 수 있음
+#맨 마지막 매개변수에만 쓸 수 있음
