@@ -54,3 +54,5 @@ print(f2e['chien'])
 e2f={"dog": "chien", "cat": "chat","walrus": "morse"}
 print(e2f.keys()) #dict_keys(['dog', 'cat', 'walrus'])
 '''
+
+#8.10
