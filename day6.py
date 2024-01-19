@@ -1,51 +1,37 @@
-'''
-class Pokemon():#소괄호 쓰지 않아도 됨
-    pass
-
-pikachu = Pokemon()
-squirtle = Pokemon()
-'''
-'''
-class Pokemon:#소괄호 쓰지 않아도 됨
-    def __init__(self, name): #생성자
-        print(f"{name} 포켓몬스터 생성")
-
-pikachu = Pokemon("피카츄")
-squirtle = Pokemon("꼬부기")
-print(pikachu) #<__main__.Pokemon object at 0x0000023585754F10>
-print(squirtle) #<__main__.Pokemon object at 0x0000023585754F90>
-'''
-'''
+class FlyingMixin
+    def fly(self):
+        return f"{slef.name}이(가) 훨훨 납니다."
+class SwmminMixin
+    def fly(self):
+        return f"{slef.name}이(가) 수영을 합니다."
 class Pokemon:
-    pass
-pikachu = Pokemon()
-squirtle = Pokemon()
-pikachu.name = "피카츄"
-pikachu.nemesis = squirtle
-print(pikachu.name) #피카츄
-#print(pikachu.nemesis.name)
-squirtle.name="꼬부기" #객체에 이름속성을 부여 한 후에
-
-print(pikachu.nemesis.name) #프린트해야 에러 없이 할당된 것이 나옴
-#아래처럼 해도 됨
-#pikachu.nemesis.name = "꼬부기"
-#print(squirtle.name)
-'''
-
-#클래스 안에 선언된 멤버함수를 메소드라고 함
-
-class Pokemon:#소괄호 쓰지 않아도 됨
     def __init__(self, name):
         self.name = name
-        print(f"{name} 포켓몬스터 생성")
-
     def attack(self, target):
-        print(f"{self.name} 이(가) {target.name}을(를) 공격!")
+        print(f"{self.name}이(가) {target.name}을(를) 공격!")
 
-charizard = Pokemon("리자몽")#리자몽 포켓몬스터 생성
-pikachu = Pokemon("피카츄")#피카츄 포켓몬스터 생성
-squirtle = Pokemon("꼬부기")#꼬부기 포켓몬스터 생성
+#class Pikachu(Pokemon):
+class Pikachu(Pokemon): #is - a
+    def __init__(self, name, type):
+        super().__init__(name) #super() -> 부모클래스 호출, 부모클래스의 init method를 이용해서 초기화
+        self.type = type
+    def attack(self, target):
+        print(f"{self.name}이(가) {target.name}을(를) {self.type} 공격!")
+    def electric_info(self):
+        print("전기 계열의 공격을 합니다.")
 
-charizard.attack(squirtle) #리자몽 이(가) 꼬부기을(를) 공격!
-#print(pikachu.name) #AttributeError: 'Pokemon' object has no attribute 'name'
-#print(squirtle.name) #포켓몬에 네임이라는 속성을 가지고 있지 않다
+class Squirtle(Pokemon): #is - a
+    pass
+class Agumon:
+    pass
+
+p1 = Pikachu("피카츄", "전기")
+p2 = Squirtle("꼬부기")
+p3 = Pokemon("근육몬")
+p1.electric_info()
+#p3.electric_info() #AttributeError: 'Pokemon' object has no attribute 'electric_info'
+p1.attack(p2)
+p2.attack(p1)
+print(p1.name, p1.type)
+print(issubclass(Pikachu,Pokemon))
+#오버라이드: 부모가 가진 메서드를 자식이 재정의함
