@@ -1,32 +1,17 @@
-import random
+'''
+def desc(f): #outer fuction
+    def wrapper(): #inner function 독립된 공간, 호출해야 사용 가능
+        #closure가 f라는 값을 가지고 있음
+        print("study")
+        f()
+    #print("a")
+    return wrapper
 
-
-class OopsException(Exception):
-    pass
-
-
-# numbers = list()
-# for i in range(5):
-#     numbers.append(random.randint(1, 100))
-@ @-9
-
-, 12 + 13, 17 @ @
-try:
-    pick = int(input(f"Input index (0 ~ {len(numbers) - 1}) : "))
-    print(numbers[pick])
-    # print(5/0)
-    print(5 / 2)
-    raise OopsException("Oops~~")  # exception!
-except IndexError as err:
-    print(f"Wrong index number\n{err}")
-except ValueError as err:
-    print(f"Input Only Number~\n{err}")
-    print(f"Input only number~\n{err}")
-except ZeroDivisionError as err:
-    print(f"The denominator cannot be 0.\n{err}")
-# except OopsException as err:
-#     print(f"Oops Oops {err}")
-except Exception as err:
-    print(f"Error occurs : {err}")
-else:
-    print(f"Program terminate")
+#decorating
+@desc
+def something():
+    print("do something~")
+# s=desc(something)
+# s() #이렇게 두 줄 써도 되고 밑에처럼 써도 됨
+something()
+'''
