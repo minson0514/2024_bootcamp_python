@@ -1,18 +1,3 @@
-# Open Closed Principle
-def test(f):
-    """
-    데코레이터 함수, 함수 시작하면 start 출력, 함수 끝나면 end 출력
-    :param f: function
-    :return: closure function
-    """
-    #def test_in(*args, **kwargs):
-    def test_in():
-        print('start')
-        #result = f(*args, **kwargs)
-        f()
-        print('end')
-        #return result
-    return test_in
 def factorial_repetition(n) -> int:
     '''
     반복문을 이용한 팩토리얼 함수
@@ -23,6 +8,7 @@ def factorial_repetition(n) -> int:
     for i in range(2, n+1):
         result = result * i
     return result
+import random
 
 def factorial_recursion(n):
     '''
@@ -34,14 +20,25 @@ def factorial_recursion(n):
         return n
     else:
         return n * factorial_recursion(n-1)
+# numbers = list()
+# for i in range(5):
+#     numbers.append(random.randint(1, 100))
+numbers = [random.randint(1, 100) for i in range(10)]
+print(numbers)
 
-@test
-def greeting():
-    print("안녕하세요~")
-
-
-greeting()
 number = int(input("number : "))
 print(factorial_repetition(number))
 print(factorial_recursion(number))
 print(globals())
+try:
+    pick = int(input(f"Input index (0 ~ {len(numbers)-1}) : "))
+    print(numbers[pick])
+    #print(5/0)
+except IndexError as err:
+    print(f"Wrong index number\n{err}")
+except ValueError as err:
+    print(f"Input Only Number~\n{err}")
+except ZeroDivisionError as err:
+    print(f"The denominator cannot be 0.\n{err}")
+except Exception as err:
+    print(f"Error occurs : {err}")
