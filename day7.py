@@ -1,73 +1,36 @@
-class FlyingBehavior:
-    def fly(self): #메서드 형태 #fly라는 instance
-        return f"하늘을 훨훨 날아갑니다~"
-
-class JetPack(FlyingBehavior):
-    def fly(self):
-        return f"로켓 추진기로 하늘을 날아갑니다."
-
-class NoFly(FlyingBehavior):
-    def fly(self):
-        return f"하늘을 날 수 없습니다."
-
-class FlyWithWings(FlyingBehavior):
-    def fly(self):
-        return f"날개로 하늘을 훨훨 날아갑니다."
-
-class SwimmingBehavior:
-    def swim(self):
-        return f"{self.__name}이(가) 수영을 합니다."
-
-class Pokemon:
-    def __init__(self, name, hp, fly_behavior):
-        self.__name = name
-        self.hp = hp
-        self.fly_behavior = fly_behavior #클래스의 객체
-
-    def set_fly_behavior(self, fly):
-        self.fly_behavior = fly
+# module
+import mymathi
 
 
-    def attack(self):
-        print("공격~")
+while True:
+    menu = input("1) Fahrenheit -> Celsius   2) Celsius -> Fahrenheit   3) Prime1   4) Prime2   5) Quit program : ")
 
-    @property
-    def name(self):
-        return self.__name
+    if menu == '1':
+        fahrenheit = float(input('Input Fahrenheit : '))
+        print(f'Fahrenheit : {fahrenheit}F, Celsius : {((fahrenheit-32.0)*5.0/9.0):.4f}C')
+    elif menu == '2':
+        celsius = float(input('Input Celsius : '))
+        print(f'Celsius : {celsius}C, Fahrenheit : {((celsius*9.0/5.0)+32.0):.4f}F')
+    elif menu == '3':
+        number = int(input("Input number : "))
+        if mymathi.isprime(number):
+            print(f'{number} is prime number')
+        else:
+            print(f'{number} is NOT prime number!')
+    elif menu == '4':
+        numbers = input("Input first second number : ").split()
+        n1 = int(numbers[0])
+        n2 = int(numbers[1])
 
-    @name.setter
-    def name(self, new_name):
-        self.__name = new_name
+        if n1 > n2:
+            n1, n2 = n2, n1
 
-    #name = property(get_name, set_name)
-    def __str__(self):
-        return self.__name + " 입니다"
-
-    def __add__(self,target):
-        #return self.__name+"+"+target.__name #연산자 오버로딩
-        return f"두 포켓몬스터 체력의 합은 {self.hp+target.hp} 입니다."
-
-
-class Charizard(Pokemon):
-    pass
-
-class Pikachu(Pokemon):
-    def __init__(self, name, hp, fly):
-        self.name = name
-        self.hp = hp
-        #self.fly_behavior = fly #aggregation
-        self.fly_behavior = NoFly() #composition
-
-#nofly=NoFly()
-p1 = Pikachu("피카츄", 35, NoFly) #lsp
-print(p1.fly_behavior.fly())
-'''
-wings = FlyWithWings()
-c1 = Charizard("리자몽", 120, wings) #다른 클래스의 객체를 인수로 전달 #lsp
-print(c1.fly_behavior.fly()) #리자몽객체 -> flyingbehavior클래스의 객체 -> " 가 가지고 있는 속성
-print(p1.fly_behavior.fly())
-print(p1) #cannot fly
-print(c1)
-p1.set_fly_behavior(JetPack())
-print(p1+c1)
-'''
+        for number in range(n1, n2 + 1):
+            if mymathi.isprime(number):
+                print(number, end=' ')
+        print()
+    elif menu == '5':
+        print('Terminate Program.')
+        break
+    else:
+        print('Invalid Menu!')
