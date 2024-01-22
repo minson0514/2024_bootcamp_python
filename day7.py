@@ -55,11 +55,13 @@ class Pikachu(Pokemon):
     def __init__(self, name, hp, fly):
         self.name = name
         self.hp = hp
-        self.fly_behavior = fly #aggregation
+        #self.fly_behavior = fly #aggregation
+        self.fly_behavior = NoFly() #composition
 
-nofly=NoFly()
-p1 = Pikachu("피카츄", 35, nofly) #lsp
+#nofly=NoFly()
+p1 = Pikachu("피카츄", 35, NoFly) #lsp
 print(p1.fly_behavior.fly())
+'''
 wings = FlyWithWings()
 c1 = Charizard("리자몽", 120, wings) #다른 클래스의 객체를 인수로 전달 #lsp
 print(c1.fly_behavior.fly()) #리자몽객체 -> flyingbehavior클래스의 객체 -> " 가 가지고 있는 속성
@@ -68,3 +70,4 @@ print(p1) #cannot fly
 print(c1)
 p1.set_fly_behavior(JetPack())
 print(p1+c1)
+'''
