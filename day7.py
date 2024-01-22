@@ -1,7 +1,7 @@
 # module
 #from mymathi import* #from 절은 모듈 이름 생략 가능
 #모듈 이름을 아예 생략하고 쓰면 됨
-import mymathi as mm
+import mymathi as mm #모듈 이름을 다른식으로 import 인공지능 분야에서 많이 사용함
 
 
 while True:
