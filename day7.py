@@ -1,7 +1,7 @@
 # module
 #from mymathi import* #from 절은 모듈 이름 생략 가능
 #모듈 이름을 아예 생략하고 쓰면 됨
-import mymath as mm
+import mymathi as mm
 
 
 while True:
