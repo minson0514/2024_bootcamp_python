@@ -1,5 +1,7 @@
 # module
-import mymathi
+#from mymathi import* #from 절은 모듈 이름 생략 가능
+#모듈 이름을 아예 생략하고 쓰면 됨
+
 
 
 while True:
@@ -7,13 +9,13 @@ while True:
 
     if menu == '1':
         fahrenheit = float(input('Input Fahrenheit : '))
-        print(f'Fahrenheit : {fahrenheit}F, Celsius : {mymathi.fahrenheit_to_celsius(fahrenheit):.4f}C')
+        print(f'Fahrenheit : {fahrenheit}F, Celsius : {fahrenheit_to_celsius(fahrenheit):.4f}C')
     elif menu == '2':
         celsius = float(input('Input Celsius : '))
-        print(f'Celsius : {celsius}C, Fahrenheit : {mymathi.celsius_to_fahrenheit(celsius):.4f}F')
+        print(f'Celsius : {celsius}C, Fahrenheit : {celsius_to_fahrenheit(celsius):.4f}F')
     elif menu == '3':
         number = int(input("Input number : "))
-        if mymathi.isprime(number):
+        if isprime(number):
             print(f'{number} is prime number')
         else:
             print(f'{number} is NOT prime number!')
@@ -26,7 +28,7 @@ while True:
             n1, n2 = n2, n1
 
         for number in range(n1, n2 + 1):
-            if mymathi.isprime(number):
+            if isprime(number):
                 print(number, end=' ')
         print()
     elif menu == '5':
